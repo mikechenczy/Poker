@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="DotNetty_Buffers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\DotNetty.Buffers.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DotNetty_Codecs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\DotNetty.Codecs.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DotNetty_Common" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\DotNetty.Common.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DotNetty_Transport" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\DotNetty.Transport.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="EventBus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\EventBus.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MessagePack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\MessagePack.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MessagePack_Annotations" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\MessagePack.Annotations.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Microsoft_Bcl_AsyncInterfaces" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\Microsoft.Bcl.AsyncInterfaces.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Microsoft_Extensions_DependencyInjection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\Microsoft.Extensions.DependencyInjection.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Microsoft_Extensions_DependencyInjection_Abstractions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\Microsoft.Extensions.DependencyInjection.Abstractions.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Microsoft_Extensions_Logging" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\Microsoft.Extensions.Logging.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Microsoft_Extensions_Logging_Abstractions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\Microsoft.Extensions.Logging.Abstractions.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Microsoft_Extensions_Options" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\Microsoft.Extensions.Options.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Microsoft_Extensions_Primitives" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\Microsoft.Extensions.Primitives.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Newtonsoft_Json" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\Newtonsoft.Json.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="System_Buffers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\System.Buffers.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="System_Collections_Immutable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\System.Collections.Immutable.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="System_Diagnostics_DiagnosticSource" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\System.Diagnostics.DiagnosticSource.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="System_Memory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\System.Memory.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="System_Numerics_Vectors" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\System.Numerics.Vectors.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="System_Runtime_CompilerServices_Unsafe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\System.Runtime.CompilerServices.Unsafe.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="System_Threading_Tasks_Extensions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\System.Threading.Tasks.Extensions.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="System_ValueTuple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\System.ValueTuple.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Update_exe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Data\Update.exe.gz;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="大王" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\大王.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="小王" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\小王.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片J" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片J.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片K" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片K.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="方片Q" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\方片♦\方片Q.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花J" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花J.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花K" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花K.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="梅花Q" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\梅花♣\梅花Q.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃J" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃J.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃K" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃K.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="红桃Q" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\红桃♥\红桃Q.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="背面" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\背面.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃A" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃A.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃J" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃J.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃K" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃K.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="黑桃Q" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\cards\黑桃♠\黑桃Q.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>
