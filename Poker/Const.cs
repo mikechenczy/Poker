@@ -30,7 +30,6 @@ namespace Poker
 
         public static User user;
         public static bool connected;
-        public static string aes = "BestVpnIsTheBest";
 
         public static bool autoLogin;
         public static string username;
