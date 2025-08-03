@@ -52,6 +52,12 @@ namespace Poker
         {
             if(!readUpdate)
             {
+                if (!Const.ipGot)
+                {
+                    MessageBox.Show("初始化可能较久，请耐心等待", "初始化中", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loginButton.Enabled = true;
+                    return;
+                }
                 JObject json = HttpService.needUpdate();
                 readUpdate = true;
                 if (json == null)

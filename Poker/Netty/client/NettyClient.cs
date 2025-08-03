@@ -23,99 +23,142 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using DotNetty.Codecs.Http;
+using DotNetty.Codecs.Http.WebSockets;
+using System.Net.Http;
 
-namespace NettyCSharp
+namespace Poker.Netty.Client
 {
     public class NettyClient
     {
-        // Server端IP地址
-        private IPAddress Host;
-        // Netty服务端监听端口号
-        private int Port;
-        // 通信管道
-        private IChannel channel;
+        public ClientHandler clientHandler = new ClientHandler();
 
-        private AutoResetEvent ChannelInitilizedEvent = new AutoResetEvent(false);
-        private MultithreadEventLoopGroup group;
-        private Bootstrap bootstrap;
-
-        public NettyClient(IPAddress Host, int Port)
+        public void sendMessage(String msg)
         {
-            this.Host = Host;
-            this.Port = Port;
+            clientHandler.sendMessage(msg);
         }
 
-        /**
-         * 发送消息
-         *
-         * @param event
-         */
-        public void SendMessage(string msg)
+        public async Task<bool> ConnectAsync(string url)
         {
-            if (channel != null && channel.Active)
-            {//已建立连接状态
-                channel.WriteAndFlushAsync(msg);
-            }
-            else
+            // DotNetty 的 EventLoopGroup，使用 MultithreadEventLoopGroup 替代 NioEventLoopGroup
+            IEventLoopGroup group = new MultithreadEventLoopGroup();
+
+            try
             {
-                //EventBus.getDefault().post("还未建立连接，不能发送消息");
-            }
-        }
+                var bootstrap = new Bootstrap();
+                bootstrap
+                    .Group(group)
+                    .Option(ChannelOption.SoKeepalive, true)
+                    .Option(ChannelOption.TcpNodelay, true)
+                    // DotNetty 的 ConnectTimeout 需要 TimeSpan
+                    .Option(ChannelOption.ConnectTimeout, TimeSpan.FromMilliseconds(Const.connectTimeout))
+                    .Channel<TcpSocketChannel>();
 
-        public void init()
-        {
-            group = new MultithreadEventLoopGroup();
-            bootstrap = new Bootstrap();
-            bootstrap
-                .Group(group)
-                // 当执行channelfactory的newChannel方法时,会创建TcpSocketChannel实例
-                .Channel<TcpSocketChannel>()
-                // ChannelOption.TCP_NODELAY参数对应于套接字选项中的TCP_NODELAY,该参数的使用与Nagle算法有关
-                // Nagle算法是将小的数据包组装为更大的帧然后进行发送，而不是输入一次发送一次,因此在数据包不足的时候会等待其他数据的到了，组装成大的数据包进行发送，虽然该方式有效提高网络的有效
-                // 负载，但是却造成了延时，而该参数的作用就是禁止使用Nagle算法，使用于小数据即时传输，于TCP_NODELAY相对应的是TCP_CORK，该选项是需要等到发送的数据量最大的时候，一次性发送
-                // 数据，适用于文件传输。
-                .Option(ChannelOption.TcpNodelay, true)
-                .Handler(new ActionChannelInitializer<ISocketChannel>(channel =>
+                NettyClientHandler handler = null;
+
+                bootstrap.Handler(new ActionChannelInitializer<ISocketChannel>(socketChannel =>
                 {
-                    IChannelPipeline pipeline = channel.Pipeline;
-                    // Tcp粘包处理，添加一个LengthFieldBasedFrameDecoder解码器，它会在解码时按照消息头的长度来进行解码。
-                    pipeline.AddLast("frameDecoder", new LengthFieldBasedFrameDecoder(ushort.MaxValue, 0, 4, 0, 4));
-                    // MessagePack解码器，消息进来后先由frameDecoder处理，再给msgPackDecoder处理
-                    pipeline.AddLast("msgPackDecoder", new MessagePackDecoder());
-                    // Tcp粘包处理，添加一个
-                    // LengthFieldPrepender编码器，它会在ByteBuf之前增加4个字节的字段，用于记录消息长度。
-                    pipeline.AddLast("frameEncoder", new LengthFieldPrepender(4));
-                    // MessagePack编码器，消息发出之前先由frameEncoder处理，再给msgPackEncoder处理
-                    pipeline.AddLast("msgPackEncoder", new MessagePackEncoder());
-                    // 消息处理handler
-                    pipeline.AddLast("handler", new NettyClientHandler());
+                    IChannelPipeline pipeline = socketChannel.Pipeline;
+                    pipeline.AddLast(new HttpClientCodec());
+                    pipeline.AddLast(new HttpObjectAggregator(2155380 * 10));
+                    handler = new NettyClientHandler(this); // 需你自己定义好 NettyClientWebSocket.This
+                    pipeline.AddLast("handler", handler);
                 }));
+
+                var uri = new Uri(url);
+                string host = uri.Host;
+                int port = uri.Port;
+
+                // 这里你需要自己实现或改写 NetWorkUtil.GetRealURI() 方法
+                Uri realURI = uri;
+                    /*await GetRealURI(new UriBuilder
+                {
+                    Scheme = uri.Scheme == "wss" ? "https" : "http",
+                    UserName = uri.UserInfo,
+                    Host = uri.Host,
+                    Port = uri.Port,
+                    Path = uri.AbsolutePath,
+                    Query = uri.Query,
+                    Fragment = uri.Fragment
+                }.Uri.ToString());*/
+
+                Console.WriteLine("connect: " + realURI);
+
+                if (realURI != null)
+                {
+                    host = realURI.Host;
+                    port = realURI.Port;
+                }
+
+                Console.WriteLine($"Connecting to host: {host}, port: {port}");
+                // ConnectAsync 返回 Task<IChannel>
+                //IChannel channel = await bootstrap.ConnectAsync(host, port);
+                IChannel channel;
+                // 判断 host 是 IP 字符串还是域名
+                if (IPAddress.TryParse(host, out var ipAddress))
+                {
+                    channel = await bootstrap.ConnectAsync(new IPEndPoint(ipAddress, port));
+                }
+                else
+                {
+                    // 只有在是域名时才让 DotNetty 解析 DNS
+                    channel = await bootstrap.ConnectAsync(host, port);
+                    
+                }
+
+                Console.WriteLine($"连接websocket服务器: {url} isSuccess={channel.Active}");
+
+                if (channel.Active)
+                {
+                    // 进行握手
+                    handler = (NettyClientHandler)channel.Pipeline.Get("handler");
+
+                    Console.WriteLine("ipv6:" + Const.ipv6Support);
+                    string wsHost = uri.Host;
+
+                    // 使用DotNetty自带握手器创建工厂方法
+                    var handshaker = WebSocketClientHandshakerFactory.NewHandshaker(
+                        uri,
+                        WebSocketVersion.V13,
+                        null,
+                        true,
+                        new DefaultHttpHeaders(),
+                        2155380 * 10);
+                    handler.SetHandshaker(handshaker);
+                    handshaker.HandshakeAsync(channel).Wait(); // 同步等待握手完成，或者用 await
+
+                    // 等待握手完成 Task（如果你改成异步，可以改为 await）
+                    await handler.HandshakeCompletion;
+                }
+
+                await channel.CloseCompletion;
+
+                return !handler.exceptionCaught;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            finally
+            {
+                await group.ShutdownGracefullyAsync(TimeSpan.FromMilliseconds(100), TimeSpan.FromSeconds(1));
+            }
+            return false;
         }
 
         //开启客户端
-        public async Task StartClient()
+        public async void doConnect()
         {
-            var connected = false;
             do
             {
-                try
+                long start = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+                var connected = await ConnectAsync(Const.wsAddr + Const.user.userId);
+                long time = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - start;
+                if (time < Const.connectTimeout)
                 {
-                    channel = await bootstrap.ConnectAsync(Host, Port);
-                    ChannelInitilizedEvent.Set();
-                    JObject jObject = new JObject();
-                    jObject["type"] = "userId";
-                    jObject["userId"] = Const.user.userId;
-                    SendMessage(jObject.ToString());
-                    connected = true;
+                    Thread.Sleep((int)(Const.connectTimeout - time));
                 }
-                catch (Exception ce)
-                {
-                    channel = null;
-                    Console.WriteLine(ce.StackTrace);
-                    Console.WriteLine("Reconnect server after 3 seconds...");
-                    Thread.Sleep(3000);
-                }
-            } while (!connected);
+            } while (true);
             /*try
             {
                 // 发起连接操作
@@ -140,6 +183,37 @@ namespace NettyCSharp
                 //group.ShutdownGracefullyAsync().Wait(1000);
                 //await group.ShutdownGracefullyAsync(TimeSpan.FromMilliseconds(100), TimeSpan.FromSeconds(1));
             }*/
+        }
+
+        public static async Task<Uri> GetRealURI(string url)
+        {
+            try
+            {
+                var handler = new HttpClientHandler
+                {
+                    AllowAutoRedirect = true,
+                    // 连接和接收超时在 HttpClient 外层用 CancellationToken 控制
+                    // 如果想设置代理、证书等，可在这里配置
+                };
+
+                var httpClient = new HttpClient(handler);
+
+                // 设置超时时间（等同于连接超时和读取超时）
+                httpClient.Timeout = TimeSpan.FromMilliseconds(Const.connectTimeout);
+
+                // 发送请求（GET），HttpClient 自动跟踪重定向
+                var response = await httpClient.GetAsync(url);
+
+                response.EnsureSuccessStatusCode();
+
+                // 返回响应请求的最终 Uri 地址（经过所有重定向后）
+                return response.RequestMessage.RequestUri;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
         }
     }
 }

@@ -1,14 +1,8 @@
 ﻿using Poker.Service;
-using NettyCSharp;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using Poker.Netty;
 
 namespace Poker
 {
@@ -82,7 +76,7 @@ namespace Poker
 
         private void button5_Click(object sender, EventArgs e)
         {
-            new ChoosePlayerForm(this, NettyClientHandler.players).Show();
+            new ChoosePlayerForm(this, ConnectionHandler.nettyClient.clientHandler.players).Show();
         }
     }
 }

@@ -118,26 +118,29 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="DnsClient" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\DnsClient.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="DotNetty_Buffers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\dll\DotNetty.Buffers.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DotNetty_Codecs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\dll\DotNetty.Codecs.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="DotNetty_Codecs_Http" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\DotNetty.Codecs.Http.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="DotNetty_Common" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\dll\DotNetty.Common.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DotNetty_Handlers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\dll\DotNetty.Handlers.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DotNetty_Transport" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\dll\DotNetty.Transport.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="EventBus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\dll\EventBus.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MessagePack" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\dll\MessagePack.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MessagePack_Annotations" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\dll\MessagePack.Annotations.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Microsoft_Bcl_AsyncInterfaces" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\dll\Microsoft.Bcl.AsyncInterfaces.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

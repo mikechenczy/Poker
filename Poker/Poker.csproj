@@ -56,26 +56,29 @@
     <StartupObject>Poker.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DotNetty.Buffers, Version=0.7.2.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetty.Buffers.0.7.2\lib\net472\DotNetty.Buffers.dll</HintPath>
+    <Reference Include="DnsClient, Version=1.8.0.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.8.0\lib\net472\DnsClient.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetty.Codecs, Version=0.7.2.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetty.Codecs.0.7.2\lib\net472\DotNetty.Codecs.dll</HintPath>
+    <Reference Include="DotNetty.Buffers, Version=0.7.6.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetty.Buffers.0.7.6\lib\net472\DotNetty.Buffers.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetty.Common, Version=0.7.2.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetty.Common.0.7.2\lib\net472\DotNetty.Common.dll</HintPath>
+    <Reference Include="DotNetty.Codecs, Version=0.7.6.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetty.Codecs.0.7.6\lib\net472\DotNetty.Codecs.dll</HintPath>
     </Reference>
-    <Reference Include="DotNetty.Transport, Version=0.7.2.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
-      <HintPath>..\packages\DotNetty.Transport.0.7.2\lib\net472\DotNetty.Transport.dll</HintPath>
+    <Reference Include="DotNetty.Codecs.Http, Version=0.7.6.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetty.Codecs.Http.0.7.6\lib\net472\DotNetty.Codecs.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Common, Version=0.7.6.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetty.Common.0.7.6\lib\net472\DotNetty.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Handlers, Version=0.7.6.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetty.Handlers.0.7.6\lib\net472\DotNetty.Handlers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetty.Transport, Version=0.7.6.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetty.Transport.0.7.6\lib\net472\DotNetty.Transport.dll</HintPath>
     </Reference>
     <Reference Include="EventBus, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e3081d91662be497, processorArchitecture=MSIL">
       <HintPath>..\packages\EventBus.1.1.2\lib\net461\EventBus.dll</HintPath>
-    </Reference>
-    <Reference Include="MessagePack, Version=2.3.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
-      <HintPath>..\packages\MessagePack.2.3.85\lib\netstandard2.0\MessagePack.dll</HintPath>
-    </Reference>
-    <Reference Include="MessagePack.Annotations, Version=2.3.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
-      <HintPath>..\packages\MessagePack.Annotations.2.3.85\lib\netstandard2.0\MessagePack.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -139,10 +142,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Netty\client\NettyClient.cs" />
-    <Compile Include="Netty\client\NettyClientHandler.cs" />
-    <Compile Include="Netty\coder\MessagePackDecoder.cs" />
-    <Compile Include="Netty\coder\MessagePackEncoder.cs" />
+    <Compile Include="Netty\Client\ClientHandler.cs" />
+    <Compile Include="Netty\Client\NettyClient.cs" />
+    <Compile Include="Netty\Client\NettyClientHandler.cs" />
     <Compile Include="Const.cs" />
     <Compile Include="Model\PayType.cs" />
     <Compile Include="Model\User.cs" />
@@ -152,6 +154,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Base64.cs" />
     <Compile Include="Utils\ImageUtil.cs" />
     <Compile Include="Netty\ConnectionHandler.cs" />
     <Compile Include="Program.cs" />
@@ -162,6 +165,7 @@
     <Compile Include="Utils\FileManager.cs" />
     <Compile Include="Utils\FileUtil.cs" />
     <Compile Include="Utils\HttpUtil.cs" />
+    <Compile Include="Utils\ServerUtil.cs" />
     <Compile Include="Utils\StringUtil.cs" />
     <Compile Include="Utils\UserUtil.cs" />
     <Compile Include="View\ChangePasswordForm.cs">
@@ -537,6 +541,9 @@
     <None Include="dll\System.ValueTuple.dll" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="dll\DnsClient.dll" />
+    <None Include="dll\DotNetty.Codecs.Http.dll" />
+    <None Include="dll\DotNetty.Handlers.dll" />
     <Content Include="logo.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -3,7 +3,6 @@ using Poker.Properties;
 using Poker.Service;
 using Poker.View;
 using Poker.Utils;
-using NettyCSharp;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -72,13 +71,14 @@ namespace Poker
                     Environment.Exit(0);
                 }
             }).Start();*/
+            EmbeddedAssembly.Load(Resources.DnsClient, "DnsClient.dll");
             EmbeddedAssembly.Load(Resources.DotNetty_Buffers, "DotNetty.Buffers.dll");
             EmbeddedAssembly.Load(Resources.DotNetty_Codecs, "DotNetty.Codecs.dll");
+            EmbeddedAssembly.Load(Resources.DotNetty_Codecs_Http, "DotNetty.Codecs.Http.dll");
             EmbeddedAssembly.Load(Resources.DotNetty_Common, "DotNetty.Common.dll");
+            EmbeddedAssembly.Load(Resources.DotNetty_Handlers, "DotNetty.Handlers.dll");
             EmbeddedAssembly.Load(Resources.DotNetty_Transport, "DotNetty.Transport.dll");
             EmbeddedAssembly.Load(Resources.EventBus, "EventBus.dll");
-            EmbeddedAssembly.Load(Resources.MessagePack_Annotations, "MessagePack_Annotations.dll");
-            EmbeddedAssembly.Load(Resources.MessagePack, "MessagePack.dll");
             EmbeddedAssembly.Load(Resources.Microsoft_Bcl_AsyncInterfaces, "Microsoft_Bcl_AsyncInterfaces.dll");
             EmbeddedAssembly.Load(Resources.Microsoft_Extensions_DependencyInjection_Abstractions, "Microsoft_Extensions_DependencyInjection_Abstractions.dll");
             EmbeddedAssembly.Load(Resources.Microsoft_Extensions_DependencyInjection, "Microsoft_Extensions_DependencyInjection.dll");
@@ -113,6 +113,10 @@ namespace Poker
                 first = false;
                 new Thread(() =>
                 {
+                    while (!Const.ipGot)
+                    {
+                        Thread.Sleep(0);
+                    }
                     loginForm.BeginInvoke(new MethodInvoker(() =>
                     {
                         loginForm.Show();

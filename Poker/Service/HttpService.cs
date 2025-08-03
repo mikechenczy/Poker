@@ -93,7 +93,7 @@ namespace Poker.Service
             map.Add("password", password);
             map.Add("device", "Windows");
             map.Add("ipAddress", GetIPFromHtml(HttpGetPageHtml("http://www.net.cn/static/customercare/yourip.asp", "utf-8")));
-            url = Const.httpIp + "user/login";
+            url = Const.serverAddr + "user/login";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)
@@ -120,7 +120,7 @@ namespace Poker.Service
             Dictionary<string, string> map = new Dictionary<string, string>();
             map.Add("username", usernameOrEmail);
             map.Add("password", password);
-            url = Const.httpIp + "user/loginWithoutData";
+            url = Const.serverAddr + "user/loginWithoutData";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)
@@ -143,13 +143,13 @@ namespace Poker.Service
 
         public static string getAndroidUrl()
         {
-            url = Const.httpIp + "core/getAndroidUrl";
+            url = Const.serverAddr + "core/getAndroidUrl";
             return GetRequest(url);
         }
 
         public static int signIn()
         {
-            url = Const.httpIp + "core/signIn";
+            url = Const.serverAddr + "core/signIn";
             string content = GetRequest(url);
             if (content == null)
             {
@@ -161,7 +161,7 @@ namespace Poker.Service
 
         public static string getSignInInfo()
         {
-            url = Const.httpIp + "core/getSignInInfo";
+            url = Const.serverAddr + "core/getSignInInfo";
             string content = GetRequest(url);
             if (content == null)
             {
@@ -173,7 +173,7 @@ namespace Poker.Service
 
         public static List<PayType> getPayTypes()
         {
-            url = Const.httpIp + "pay/getPayTypes";
+            url = Const.serverAddr + "pay/getPayTypes";
             string content = GetRequest(url);
             if (content == null)
             {
@@ -185,7 +185,7 @@ namespace Poker.Service
 
         public static string[] pay(PayType payType)
         {
-            url = Const.httpIp + "pay/pay";
+            url = Const.serverAddr + "pay/pay";
             Dictionary<string, string> map = new Dictionary<string, string>();
             map.Add("payType", payType.payType.ToString());
             url = HttpUtil.setParamToUrl(url, map);
@@ -202,7 +202,7 @@ namespace Poker.Service
 
         public static object[] query(string payNo)
         {
-            url = Const.httpIp + "pay/query";
+            url = Const.serverAddr + "pay/query";
             Dictionary<string, string> map = new Dictionary<string, string>();
             map.Add("payNo", payNo);
             url = HttpUtil.setParamToUrl(url, map);
@@ -225,7 +225,7 @@ namespace Poker.Service
 
         public static int forgetPasswordEmail(string username)
         {
-            url = Const.httpIp + "user/forgetPasswordEmail";
+            url = Const.serverAddr + "user/forgetPasswordEmail";
             Dictionary<string, string> map = new Dictionary<string, string>();
             map.Add("username", username);
             url = HttpUtil.setParamToUrl(url, map);
@@ -240,7 +240,7 @@ namespace Poker.Service
 
         public static int forgetPassword(Dictionary<string, string> map)
         {
-            url = Const.httpIp + "user/forgetPassword";
+            url = Const.serverAddr + "user/forgetPassword";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)
@@ -253,7 +253,7 @@ namespace Poker.Service
 
         public static User register(Dictionary<string, string> map)
         {
-            url = Const.httpIp + "user/register";
+            url = Const.serverAddr + "user/register";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)
@@ -280,7 +280,7 @@ namespace Poker.Service
         {
             Dictionary<string, string> map = new Dictionary<string, string>();
             map.Add("version", Const.version);
-            url = Const.httpIp + "core/checkVersionNew";
+            url = Const.serverAddr + "core/checkVersionNew";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)
@@ -290,9 +290,15 @@ namespace Poker.Service
             return (JObject)JsonConvert.DeserializeObject(content);
         }
 
+        public static string getMessageContent(string serverAddr)
+        {
+            url = serverAddr + "core/getMessageContent";
+            return GetRequest(url);
+        }
+
         public static string getMessageContent()
         {
-            url = Const.httpIp + "core/getMessageContent";
+            url = Const.serverAddr + "core/getMessageContent";
             return GetRequest(url);
         }
 
@@ -303,7 +309,7 @@ namespace Poker.Service
             map.Add("title", title);
             map.Add("description", description);
             map.Add("password", password);
-            url = Const.httpIp + "room/createRoom";
+            url = Const.serverAddr + "room/createRoom";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)
@@ -324,7 +330,7 @@ namespace Poker.Service
             {
                 map.Add("password", password);
             }
-            url = Const.httpIp + "room/enterRoom";
+            url = Const.serverAddr + "room/enterRoom";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)
@@ -341,7 +347,7 @@ namespace Poker.Service
         {
             Dictionary<string, string> map = new Dictionary<string, string>();
             map.Add("userId", "" + Const.user.userId);
-            url = Const.httpIp + "room/exitRoom";
+            url = Const.serverAddr + "room/exitRoom";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)
@@ -357,7 +363,7 @@ namespace Poker.Service
         {
             Dictionary<string, string> map = new Dictionary<string, string>();
             map.Add("userId", "" + Const.user.userId);
-            url = Const.httpIp + "room/ready";
+            url = Const.serverAddr + "room/ready";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)
@@ -372,7 +378,7 @@ namespace Poker.Service
         {
             Dictionary<string, string> map = new Dictionary<string, string>();
             map.Add("userId", "" + Const.user.userId);
-            url = Const.httpIp + "room/throwCards";
+            url = Const.serverAddr + "room/throwCards";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)
@@ -388,7 +394,7 @@ namespace Poker.Service
         {
             Dictionary<string, string> map = new Dictionary<string, string>();
             map.Add("userId", "" + Const.user.userId);
-            url = Const.httpIp + "room/haveCardsAfterLook";
+            url = Const.serverAddr + "room/haveCardsAfterLook";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)
@@ -404,7 +410,7 @@ namespace Poker.Service
         {
             Dictionary<string, string> map = new Dictionary<string, string>();
             map.Add("userId", "" + Const.user.userId);
-            url = Const.httpIp + "room/lookCards";
+            url = Const.serverAddr + "room/lookCards";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)
@@ -431,7 +437,7 @@ namespace Poker.Service
             {
                 map.Add("name", name);
             }
-            url = Const.httpIp + "room/have";
+            url = Const.serverAddr + "room/have";
             url = HttpUtil.setParamToUrl(url, map);
             string content = GetRequest(url);
             if (content == null)

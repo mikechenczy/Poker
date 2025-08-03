@@ -1,15 +1,9 @@
 ﻿using Poker.Service;
-using NettyCSharp;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using Poker.Netty;
 
 namespace Poker.View
 {
@@ -48,7 +42,7 @@ namespace Poker.View
         private void lookButton_Click(object sender, EventArgs e)
         {
             lookButton.Visible = false;
-            MainForm.instance.showCards(NettyClientHandler.cards);
+            MainForm.instance.showCards(ConnectionHandler.nettyClient.clientHandler.cards);
             HttpService.lookCards();
         }
 
@@ -64,7 +58,7 @@ namespace Poker.View
 
         private void haveButton_Click(object sender, EventArgs e)
         {
-            new ChooseTypeForm(MainForm.instance, !lookButton.Visible, NettyClientHandler.playerCount == 2, NettyClientHandler.currentMoney).Show();
+            new ChooseTypeForm(MainForm.instance, !lookButton.Visible, ConnectionHandler.nettyClient.clientHandler.playerCount == 2, ConnectionHandler.nettyClient.clientHandler.currentMoney).Show();
         }
 
         private void card1Label_Click(object sender, EventArgs e)
